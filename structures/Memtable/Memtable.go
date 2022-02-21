@@ -116,26 +116,3 @@ func (mt *MemTable) Flush() []record.Record {
 	}
 	return r
 }
-
-//func main() {
-//	var tb = tokenBucket.TokenBucket{MaxRequests: 3}
-//
-//	tb.FillDefaults()
-//	tb.AddUser("Nikola")
-//	tb.Handler("Nikola")
-//	reader := bufio.NewReader(os.Stdin)
-//	fmt.Println("Unesite vrednost: ")
-//	k, _ := reader.ReadString('\n')
-//	k = strings.Replace(k, "\n", "", -1)
-//
-//	intk, err := strconv.Atoi(k)
-//	if err != nil {
-//		fmt.Println("Neispravan unos")
-//		return
-//	}
-//	intk++
-//
-//	mt := MemTable{}
-//	mt.FillDefaults()
-//
-//}
