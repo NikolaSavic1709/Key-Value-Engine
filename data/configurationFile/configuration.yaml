@@ -1,0 +1,9 @@
+wal_path: projekat/data/wal
+segment_size: 5
+lwm: 9
+memtable_threshold: 0.8
+lsm_levels: 5
+lsm_level_max: 4
+cache_size: 10
+token_time: 10000000000
+token_requests: 3
