@@ -1,0 +1,5 @@
+data/data/usertable_1_1_data.db
+data/index/usertable_1_1_index.db
+data/summary/usertable_1_1_summary.db
+data/filter/usertable_1_1_filter.db
+data/metadata/usertable_1_1_metadata.db
