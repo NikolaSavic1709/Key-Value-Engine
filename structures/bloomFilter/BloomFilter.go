@@ -4,7 +4,6 @@ import (
 	"encoding/gob"
 	"github.com/spaolacci/murmur3"
 	"hash"
-	"log"
 	"math"
 	"os"
 	"time"
