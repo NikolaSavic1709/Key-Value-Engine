@@ -50,6 +50,7 @@ func HandlerHLL() {
 	fmt.Println("**************************Meni HLL**************************")
 	fmt.Println("1 - Dodavanje elementa")
 	fmt.Println("2 - Prikaz kardinalnosti elemenata")
+	fmt.Println("3 - Korak nazad")
 }
 
 func HandlerCMS() {
@@ -57,12 +58,14 @@ func HandlerCMS() {
 	fmt.Println("**************************Meni CMS**************************")
 	fmt.Println("1 - Dodavanje elementa")
 	fmt.Println("2 - Prikaz frekvencije elementa")
+	fmt.Println("3 - Korak nazad")
 }
 
 func FirstMenuCMS(cms CMS.CountMinSketch, wal *WAL.WAL, lsm *LSM.LSM, cache *LRU.CacheLRU, tb *tokenBucket.TokenBucket, i int) {
 	reader := bufio.NewReader(os.Stdin)
-	PrintMenuCMS()
+
 	for {
+		PrintMenuCMS()
 		command := GetInputFromUser("Odaberite operaciju: ", reader)
 		if command == "4" {
 			break
@@ -124,8 +127,9 @@ func FirstMenuCMS(cms CMS.CountMinSketch, wal *WAL.WAL, lsm *LSM.LSM, cache *LRU
 
 func FirstMenuHLL(hll HLL.HLL, wal *WAL.WAL, lsm *LSM.LSM, cache *LRU.CacheLRU, tb *tokenBucket.TokenBucket, i int) {
 	reader := bufio.NewReader(os.Stdin)
-	PrintMenuHLL()
+
 	for {
+		PrintMenuHLL()
 		command := GetInputFromUser("Odaberite operaciju: ", reader)
 		if command == "4" {
 			break
@@ -187,8 +191,9 @@ func FirstMenuHLL(hll HLL.HLL, wal *WAL.WAL, lsm *LSM.LSM, cache *LRU.CacheLRU, 
 
 func SecondMenuCMS(cms CMS.CountMinSketch, wal *WAL.WAL, lsm *LSM.LSM, key string) {
 	reader := bufio.NewReader(os.Stdin)
-	HandlerCMS()
+
 	for {
+		HandlerCMS()
 		command := GetInputFromUser("Odaberite operaciju: ", reader)
 		if command == "1" {
 			element := GetInputFromUser("Dodajte elemente koji želite: ", reader)
@@ -206,9 +211,10 @@ func SecondMenuCMS(cms CMS.CountMinSketch, wal *WAL.WAL, lsm *LSM.LSM, key strin
 }
 
 func SecondMenuHLL(hll HLL.HLL, wal *WAL.WAL, lsm *LSM.LSM, key string) {
-	HandlerHLL()
+
 	reader := bufio.NewReader(os.Stdin)
 	for {
+		HandlerHLL()
 		command := GetInputFromUser("Odaberite operaciju: ", reader)
 		if command == "1" {
 			element := GetInputFromUser("Dodajte elemente koji želite: ", reader)
@@ -223,7 +229,6 @@ func SecondMenuHLL(hll HLL.HLL, wal *WAL.WAL, lsm *LSM.LSM, key string) {
 	value := hll.DecodeHLL()
 	writePath.Put(wal, lsm, key, value)
 }
-
 
 func GetInputFromUser(prompt string, reader *bufio.Reader) string {
 	var input string
