@@ -102,7 +102,6 @@ func (cms *CountMinSketch) DecodeCMS() []byte {
 			binary.LittleEndian.PutUint64(bytes, uint64(cms.Matrix[i][j]))
 			all = append(all, bytes...)
 		}
-
 	}
 	return all
 }
