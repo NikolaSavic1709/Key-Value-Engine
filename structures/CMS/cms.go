@@ -21,7 +21,7 @@ func CreateCountMinSketch(epsilon float64, delta float64) *CountMinSketch {
 	cms.M = CalculateM(epsilon)
 	cms.K = CalculateK(delta)
 	cms.CreateHashFunctions()
-	cms.Matrix = make([][]uint32, cms.M)
+	cms.Matrix = make([][]uint32, cms.K)
 	for i := range cms.Matrix {
 		cms.Matrix[i] = make([]uint32, cms.M)
 	}
@@ -34,7 +34,7 @@ func (cms *CountMinSketch) CreateHashFunctions() {
 		cms.Ts = uint32(time.Now().Unix())
 	}
 	for i := uint32(0); i < cms.K; i++ {
-		h = append(h, murmur3.New32WithSeed(uint32(cms.Ts+1)))
+		h = append(h, murmur3.New32WithSeed(uint32(cms.Ts+i)))
 	}
 	cms.hashFunctions = h
 }

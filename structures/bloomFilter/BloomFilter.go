@@ -66,7 +66,7 @@ func (bf *BloomFilter) FindData(data string) bool{
 func (bf *BloomFilter) EncodeBloomFilter(filterFilePath string) {
 	file, err := os.Create(filterFilePath)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	defer file.Close()
 	encoder := gob.NewEncoder(file)
@@ -78,7 +78,7 @@ func (bf *BloomFilter) EncodeBloomFilter(filterFilePath string) {
 func (bf *BloomFilter) DecodeBloomFilter(filterFilePath string) {
 	file, err := os.OpenFile(filterFilePath, os.O_RDWR, 0777)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	defer file.Close()
 	decoder := gob.NewDecoder(file)
