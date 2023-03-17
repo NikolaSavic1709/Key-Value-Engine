@@ -12,4 +12,5 @@ Idea of this project was to implement algorithms and data structures in ``Golang
 - SStable
 - Token bucket
 - Write-ahead log  
+  
 This project was made in second year of faculty during winter semestar.
